@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-api-quakus
+  namespace: todo-project-jenkins
+spec:
+  selector:
+    matchLabels:
+      app: todo-api-quarkus
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: todo-api-quarkus
+    spec:
+      containers:
+        - name: todo-api-quarkus
+          image: todo-api-quarkus
+          ports:
+            - containerPort: 8080
