@@ -4,12 +4,11 @@ metadata:
   name: todo-api-quarkus
   namespace: todo-project-jenkins
 spec:
-  selector:
-    app: todo-api-quarkus
   ports:
     - protocol: TCP
       port: 80
       targetPort: http
-  tls:
-    termination: Edge
-  wildcardPolicy: None
+      name: http
+  type: ClusterIP
+  selector:
+    app: todo-api-quarkus
