@@ -1,5 +1,5 @@
 parameters {
-    string(name: 'namespace', description: 'Namespace, in welchem das Projekt deployt werden soll.')
+    string(name: 'todo-project-jenkins', description: 'Namespace, in welchem das Projekt deployt werden soll.')
 }
 
 pipeline {
