@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: todo-api-quakus
+  name: todo-api-quarkus
   namespace: todo-project-jenkins
 spec:
   selector:
@@ -20,3 +20,9 @@ spec:
           image: todo-api-quarkus
           ports:
             - containerPort: 8080
+          env:
+            - name: APP_STAGE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: todo-api-quarkus
+                  key: app.stage-name
