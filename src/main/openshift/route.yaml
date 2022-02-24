@@ -4,9 +4,12 @@ metadata:
   name: todo-api-quarkus
   namespace: todo-project-jenkins
 spec:
-  path: /
   to:
     kind: Service
     name: todo-api-quarkus
+    weight: 100
   port:
     targetPort: http
+  tls:
+    termination: Edge
+  wildcardPolicy: None
