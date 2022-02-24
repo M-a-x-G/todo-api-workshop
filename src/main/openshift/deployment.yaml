@@ -13,6 +13,8 @@ spec:
       labels:
         app: todo-api-quarkus
     spec:
+      paused: true
+      serviceAccountName: todo-api-quarkus
       containers:
         - name: todo-api-quarkus
           image: todo-api-quarkus
