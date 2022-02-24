@@ -1,5 +1,5 @@
 parameters {
-    string(name: 'todo-project-jenkins', description: 'Namespace, in welchem das Projekt deployt werden soll.')
+    string(name: 'namespace', description: 'Namespace, in welchem das Projekt deployt werden soll.')
 }
 
 pipeline {
@@ -65,6 +65,7 @@ pipeline {
                 script {
                     openshift.withCluster() {
                         openshift.withProject(params.namespace) {
+                            openshift.apply(readFile("src/main/openshift/config.yaml"))
                             openshift.apply(readFile("src/main/openshift/deployment.yaml"))
                             openshift.apply(readFile("src/main/openshift/service.yaml"))
                             openshift.apply(readFile("src/main/openshift/route.yaml"))
